@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
-  AsyncStorage,
   KeyboardAvoidingView,
   Image,
   StyleSheet,
@@ -16,14 +15,6 @@ import logo from "../assets/logo.png";
 export default function Login({ navigation }) {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-
-  useEffect(() => {
-    AsyncStorage.getItem("user").then(user => {
-      if (user) {
-        navigation.navigate("Home");
-      }
-    });
-  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
